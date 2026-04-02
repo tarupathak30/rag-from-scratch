@@ -86,9 +86,9 @@ python conversational-rag/conv_rag.py
 
 ## Key Learnings
 
-- Retrieval and generation are independent problems — perfect Recall@k does not guarantee good answers
+- Retrieval and generation are independent problems, perfect Recall@k does not guarantee good answers
 - Small models (1.5B) ignore prompt instructions and over-generate, hurting ROUGE
-- Semantic embeddings handle paraphrased queries well — "dilution" matched "dropout" correctly
+- Semantic embeddings handle paraphrased queries well, "dilution" matched "dropout" correctly
 - Stress testing with out-of-corpus and vague queries reveals weaknesses that clean eval sets hide
 
 

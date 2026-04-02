@@ -1,5 +1,5 @@
 
-# Experiment {{2}} — {{Naive-RAG(Swap `qwen2.5:1.5b` for `qwen2.5:3b`)}}
+# Experiment 2 — Naive-RAG(Swap `qwen2.5:1.5b` for `qwen2.5:3b`)
 
 ## Setup
 
@@ -10,20 +10,13 @@
 | Machine          | {{AMD Athlon 3050U, 8GB RAM}} |
 | Hardware         | {{CPU only}}       |
 
----
-
-## Prompt Used
-
-```text
-{{same as above}}
-```
 
 ---
 
 ## Retrieved Context (if RAG)
 
 ```text
-{{python generator.py
+python generator.py
 (venv) PS D:\agentic_ai\rag-from-scratch\naive-rag> python generator.py
 Loading FAISS index …
 Loading encoder 'all-MiniLM-L6-v2' …
@@ -67,7 +60,7 @@ Self-attention, which involves each element in the input sequence attending to a
 In summary, the attention mechanism enhances model performance by allowing each token in a sequence to weigh its importance based on context, thereby improving understanding of sequences and facilitating more accurate predictions or classifications.
    123.98s | 630pt + 316at = 946 total tokens
    Sources: ['Attention (machine learning)', 'Attention (machine learning)', 'Diffusion model', 'BERT (language model)', 'Generative pre-trained transformer']
-}}
+
 ```
 
 ---
@@ -75,8 +68,8 @@ In summary, the attention mechanism enhances model performance by allowing each 
 ## Model Output
 
 ```text
-{{
-✓ Retriever ready  (70 vectors)
+
+Retriever ready  (70 vectors)
 
 === RETRIEVAL ===
   Recall@1: 7/7
@@ -96,7 +89,7 @@ In summary, the attention mechanism enhances model performance by allowing each 
   Avg latency: 107.7s  (min 91.0s / max 139.7s)
   Tokens — prompt: 4524  answer: 1269  total: 5793
 eval_report.json saved
-}}
+
 ```
 
 ---
@@ -118,24 +111,24 @@ eval_report.json saved
 
 ## Observations
 
-1. {{Q: What is dropout?
+1. Q: What is dropout?
     A: Dropout is a regularization technique used in artificial neural networks to reduce overfitting during training. It involves randomly setting a fraction of input units to 0 at each update during training time—both during inference and training time. This technique helps prevent complex co-adaptations on the training data by forcing the network to learn more robust features that are useful for generalization.
    78.42s | 651pt + 75at = 726 total tokens
    Sources: ['Dilution (neural networks)', 'Dilution (neural networks)', 'Loss function', 'Batch normalization', 'Diffusion model']
    
    
-   In here, the retriever is pulling the sources Dilution(neural networks) for dropout despite being the different title, a thing I observed here.}}
+   In here, the retriever is pulling the sources Dilution(neural networks) for dropout despite being the different title, a thing I observed here.
 
 ---
 
 ## Key Insight
 
-{{One line learning is that the bigger model doesn't mean the speed and quality can't be painfully traded.}}
+One line learning is that the bigger model doesn't mean the speed and quality can't be painfully traded.
 
 
 ---
 
 ## Next Experiment Ideas
 
-* {{Appending the EVAL_SET in evaluator.py with vague, complex and out of the corpus queries.}}
+* Appending the EVAL_SET in evaluator.py with vague, complex and out of the corpus queries.
 

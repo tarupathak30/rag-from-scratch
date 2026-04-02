@@ -1,7 +1,7 @@
 
 
 
-# Experiment {{1}} — {{Naive RAG}}
+# Experiment 1 — Naive RAG
 
 ## Setup
 
@@ -17,14 +17,14 @@
 ## Prompt Used
 
 ```text
-{{"""
+"""
 Answer using ONLY the context. If not found, say "I don't know."
 
 Context:
 {context}
 
 User: {query}
-Assistant:"""}}
+Assistant:"""
 ```
 
 ---
@@ -32,10 +32,10 @@ Assistant:"""}}
 ## Retrieved Context (if RAG)
 
 ```text
-{{Top-5 chunks retrieved per query using FAISS cosine similarity 
+Top-5 chunks retrieved per query using FAISS cosine similarity 
 over all-MiniLM-L6-v2 embeddings. 70 vectors in index covering 
 topics: backpropagation, dropout, attention, batch normalization,
-LLMs, RAG, gradient descent.}}
+LLMs, RAG, gradient descent.
 ```
 
 ---
@@ -43,7 +43,6 @@ LLMs, RAG, gradient descent.}}
 ## Model Output
 
 ```text
-{{
 
 === RETRIEVAL ===
   Recall@1: 7/7
@@ -61,7 +60,6 @@ LLMs, RAG, gradient descent.}}
   [7/7] What is gradient descent?…
   ROUGE-1: 0.1305  ROUGE-2: 0.0403  ROUGE-L: 0.0961
 
-}}
 ```
 
 ---
@@ -82,15 +80,15 @@ LLMs, RAG, gradient descent.}}
 
 ## Observations
 
-1. {{Retrieval is perfect — all 7 queries hit the correct chunk at rank 1, giving MRR of 1.0. The bottleneck is entirely in generation.}}
-2. {{ROUGE scores are low (0.13 / 0.04 / 0.10), indicating the model paraphrases heavily rather than reproducing reference phrasing. The 1.5B model struggles to synthesize concise, on-point answers from retrieved context.}}
-3. {{Latency is high at 57s average on CPU-only inference. The max of 86.6s suggests some queries produce significantly longer outputs before truncation.}}
+1. Retrieval is perfect — all 7 queries hit the correct chunk at rank 1, giving MRR of 1.0. The bottleneck is entirely in generation.
+2. ROUGE scores are low (0.13 / 0.04 / 0.10), indicating the model paraphrases heavily rather than reproducing reference phrasing. The 1.5B model struggles to synthesize concise, on-point answers from retrieved context.
+3. Latency is high at 57s average on CPU-only inference. The max of 86.6s suggests some queries produce significantly longer outputs before truncation.
 
 ---
 
 ## Key Insight
 
-{{Retrieval quality is not the bottleneck in naive RAG on a small corpus — generation quality and model size are, with a 1.5B model producing low ROUGE despite perfect chunk recall.}}
+Retrieval quality is not the bottleneck in naive RAG on a small corpus — generation quality and model size are, with a 1.5B model producing low ROUGE despite perfect chunk recall.
 
 ---
 
@@ -98,13 +96,13 @@ LLMs, RAG, gradient descent.}}
 
 Steps to reproduce this experiment:
 
-1. {{Build the FAISS index: `python indexer.py` — encodes chunks with `all-MiniLM-L6-v2` and saves `faiss.index` + `chunks.json`.}}
-2. {{Start Ollama and pull the model: `ollama serve` then `ollama pull qwen2.5:1.5b`.}}
-3. {{Run the evaluator: `python evaluator.py` — outputs metrics to console and saves `eval_report.json`.}}
+1. Build the FAISS index: `python indexer.py` — encodes chunks with `all-MiniLM-L6-v2` and saves `faiss.index` + `chunks.json`.
+2. Start Ollama and pull the model: `ollama serve` then `ollama pull qwen2.5:1.5b`.
+3. Run the evaluator: `python evaluator.py` — outputs metrics to console and saves `eval_report.json`.
 
 ---
 
 ## Next Experiment Ideas
 
-* {{Swap `qwen2.5:1.5b` for `qwen2.5:3b` or `llama3.2:3b` and compare ROUGE scores at the same retrieval setup.}}
-* {{Add query rewriting (conversational RAG) and measure whether standalone queries improve ROUGE on follow-up questions.}}
+* Swap `qwen2.5:1.5b` for `qwen2.5:3b` or `llama3.2:3b` and compare ROUGE scores at the same retrieval setup.
+* Add query rewriting (conversational RAG) and measure whether standalone queries improve ROUGE on follow-up questions.
