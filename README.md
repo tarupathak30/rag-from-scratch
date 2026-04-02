@@ -1,6 +1,6 @@
 # RAG from Scratch
 
-Building retrieval-augmented generation from scratch — no LangChain, no LlamaIndex, just Python + FAISS + Ollama.
+Building retrieval-augmented generation from scratch, no LangChain, no LlamaIndex, just Python + FAISS + Ollama.
 
 This project explores how well small local LLMs perform in a RAG setup, focusing on retrieval quality vs generation limitations under CPU-only constraints.
 
