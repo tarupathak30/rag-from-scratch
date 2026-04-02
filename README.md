@@ -2,6 +2,8 @@
 
 Building retrieval-augmented generation from scratch — no LangChain, no LlamaIndex, just Python + FAISS + Ollama.
 
+This project explores how well small local LLMs perform in a RAG setup, focusing on retrieval quality vs generation limitations under CPU-only constraints.
+
 ## Project Structure
 ```
 rag-from-scratch/
@@ -88,3 +90,10 @@ python conversational-rag/conv_rag.py
 - Small models (1.5B) ignore prompt instructions and over-generate, hurting ROUGE
 - Semantic embeddings handle paraphrased queries well — "dilution" matched "dropout" correctly
 - Stress testing with out-of-corpus and vague queries reveals weaknesses that clean eval sets hide
+
+
+## Limitations
+- High latency due to CPU-only inference
+- Small LLM struggles with instruction following
+- ROUGE may not fully capture answer quality
+- Retrieval works well only on small corpus
