@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+faiss.index
+chunks.json
+eval_report.json
+*.bin

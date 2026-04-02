@@ -1,0 +1,77 @@
+# Experiment {{NUMBER}} — {{TITLE}}
+
+## Setup
+
+| Item             | Value               |
+| ---------------- | ------------------- |
+| Model            | {{model_name}}      |
+| Inference Engine | {{ollama/other}}    |
+| Machine          | {{cpu_ram_details}} |
+| Hardware         | {{CPU / GPU}}       |
+
+---
+
+## Prompt Used
+
+```text
+{{paste_prompt_here}}
+```
+
+---
+
+## Retrieved Context (if RAG)
+
+```text
+{{retrieved_context_here}}
+```
+
+---
+
+## Model Output
+
+```text
+{{model_output_here}}
+```
+
+---
+
+## Metrics
+
+| Metric                 | Value             |
+| ---------------------- | ----------------- |
+| Latency                | {{latency}}       |
+| Prompt tokens (approx) | {{prompt_tokens}} |
+| Answer tokens (approx) | {{answer_tokens}} |
+| Total tokens (approx)  | {{total_tokens}}  |
+
+---
+
+## Observations
+
+1. {{observation_1}}
+2. {{observation_2}}
+3. {{observation_3}}
+
+---
+
+## Key Insight
+
+{{one_line_learning_from_this_experiment}}
+
+---
+
+## Reproducibility Notes
+
+Steps to reproduce this experiment:
+
+1. {{step_1}}
+2. {{step_2}}
+3. {{step_3}}
+
+---
+
+## Next Experiment Ideas
+
+* {{idea_1}}
+* {{idea_2}}
+* {{idea_3}}

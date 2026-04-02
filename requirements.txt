@@ -1,0 +1,7 @@
+sentence-transformers 
+numpy
+wikipedia
+faiss-cpu 
+rouge-score
+nltk 
+tqdm
